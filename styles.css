@@ -1,0 +1,69 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  * {
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+  }
+  body {
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+  input, button, textarea, select {
+    font: inherit;
+  }
+  p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+  }
+  #root, #__next {
+    isolation: isolate;
+  }
+fieldset {
+    border: none;
+    padding: 0;
+}
+  /* Mobile design first approach */
+  body, #main, .card-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .card-form {
+    width: 100%;
+  }
+
+  .card-form > * {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .card-expiry-date {
+    display: flex;
+    flex-direction: row;
+  }
+.dates {
+    display: flex;
+    flex-direction: row;
+}
+  .month-and-date {
+    display: flex;
+    flex-direction: row;
+   
+  }
+  .month-and-date > input {
+   width:  50%;
+  }
+  legend {
+    flex-basis: auto;
+  }
