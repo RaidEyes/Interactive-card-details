@@ -17,11 +17,15 @@
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
-        font-size: 11px;
+        font-size: 0.5rem;
         text-align: center;
+        position: fixed;
+        bottom: 0;
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
+        text-decoration: none;
+        font-size: 0.5rem;
       }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +45,7 @@
           class="card-back"
         />
         <div class="card-front">
-          <img src="./images/card-logo.svg" alt="card logo" />
+          <img src="./images/card-logo.svg" alt="card logo" class="card-logo" />
           <div class="card-information">
             <p class="number-display">0000 0000 0000 0000</p>
             <p class="name-display">JANE APPLESEED</p>
@@ -54,6 +58,7 @@
           >cardholder name</label
         >
         <input
+          pattern="^[a-zA-Z\s]+$"
           class="card-input"
           name="card-name"
           type="text"
@@ -62,7 +67,7 @@
         />
         <span class="error"></span>
         <label class="card-label number-label" for="card-number"
-          >cardholder number</label
+          >card number</label
         >
         <input
           class="card-input"
@@ -74,7 +79,7 @@
         <span class="error"></span>
         <div class="card-expiry-date">
           <fieldset id="dates" class="dates">
-            <legend class="expiry-header">exp.date (mm/yy)</legend>
+            <legend class="expiry-header">exp. date (mm/yy)</legend>
             <div class="month-and-date">
               <input
                 class="card-input"
@@ -91,7 +96,7 @@
                 placeholder="YY"
               />
             </div>
-            <span class="error">Error message</span>
+            <span class="error"></span>
           </fieldset>
 
           <div class="cvc-code">
@@ -103,15 +108,21 @@
               id="cvc"
               placeholder="e.g 123"
             />
-            <span class="error">Error message</span>
+            <span class="error"></span>
           </div>
         </div>
         <button class="btn submit-btn">Confirm</button>
       </form>
     </main>
     <!-- Completed state start -->
-
-    Thank you! We've added your card details Continue
+    <!-- <img
+      src="./images/icon-complete.svg"
+      alt="complete icon"
+      class="complete-logo"
+    />
+    <h3 class="complete-header">Thank you!</h3>
+    <p class="complete-message">We've added your card details</p>
+    <button class="btn complete-btn">Continue</button> -->
 
     <div class="attribution">
       Challenge by
