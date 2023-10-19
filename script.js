@@ -35,9 +35,35 @@ monthInput.addEventListener("keypress", (event) => {
   }
 });
 yearInput.addEventListener("keypress", (event) => {
-  if (yearInput.value.length > 3) {
+  if (yearInput.value.length > 1) {
     event.preventDefault();
   }
 });
 
 // 2). Change the user input to the card detail
+
+// 2a). Make an object and store data
+const expiryObject = {
+  month: "00",
+  year: "00",
+};
+
+monthInput.addEventListener("input", () => {
+  if (monthInput.value === "") {
+    expiryObject.month = "00";
+    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
+  } else {
+    expiryObject.month = monthInput.value;
+    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`; // 2b). Change data here
+  }
+});
+
+yearInput.addEventListener("input", () => {
+  if (yearInput.value === "") {
+    expiryObject.year = "00";
+    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
+  } else {
+    expiryObject.year = yearInput.value;
+    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`; // 2b). Change data here
+  }
+});
