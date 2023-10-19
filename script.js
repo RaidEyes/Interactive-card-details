@@ -1,18 +1,43 @@
 const errorMessage = document.querySelectorAll(".error");
 const userInput = document.querySelectorAll(".card-input");
+const userName = document.querySelector(".name-display");
+// userInput.forEach((input) => {
+//   input.addEventListener("input", () => {
+//     if (!input.validity.valid) {
+//       console.log(input.validity.valid);
+//     } else {
+//     }
+//   });
+// });
 
-userInput.forEach((input) => {
-  input.addEventListener("input", () => {
-    if (!input.validity.valid) {
-      console.log(input.validity.valid);
-      errorMessage.forEach((message) => {
-        message.innerHTML = "Wrong type";
-      });
-    } else {
-      errorMessage.forEach((message) => {
-        message.innerHTML = "";
-      });
-      console.log(input.validity.valid);
-    }
-  });
+// Turn the user input name into the name on the card
+const userNameInput = document.getElementById("card-name");
+
+userNameInput.addEventListener("input", () => {
+  if (userNameInput.value === "") {
+    userName.innerHTML = "JANE APPLESEED";
+  } else {
+    userName.style.textTransform = "uppercase";
+    userName.innerHTML = userNameInput.value;
+  }
 });
+
+// Get user input to the expiry date ===============================
+const expiryDate = document.querySelector(".expiry-display");
+const monthInput = document.getElementById("month");
+const yearInput = document.getElementById("year");
+
+// 1). Make sure user don't type more than 3 numbers
+
+monthInput.addEventListener("keypress", (event) => {
+  if (monthInput.value.length > 1) {
+    event.preventDefault();
+  }
+});
+yearInput.addEventListener("keypress", (event) => {
+  if (yearInput.value.length > 3) {
+    event.preventDefault();
+  }
+});
+
+// 2). Change the user input to the card detail
