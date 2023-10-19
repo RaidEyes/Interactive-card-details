@@ -1,14 +1,6 @@
 const errorMessage = document.querySelectorAll(".error");
 const userInput = document.querySelectorAll(".card-input");
 const userName = document.querySelector(".name-display");
-// userInput.forEach((input) => {
-//   input.addEventListener("input", () => {
-//     if (!input.validity.valid) {
-//       console.log(input.validity.valid);
-//     } else {
-//     }
-//   });
-// });
 
 // Turn the user input name into the name on the card
 const userNameInput = document.getElementById("card-name");
@@ -26,6 +18,7 @@ userNameInput.addEventListener("input", () => {
 const expiryDate = document.querySelector(".expiry-display");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
+const cvcCode = document.getElementById("cvc");
 
 // 1). Make sure user don't type more than 3 numbers
 
@@ -36,6 +29,12 @@ monthInput.addEventListener("keypress", (event) => {
 });
 yearInput.addEventListener("keypress", (event) => {
   if (yearInput.value.length > 1) {
+    event.preventDefault();
+  }
+});
+
+cvcCode.addEventListener("keypress", (event) => {
+  if (cvcCode.value.length > 2) {
     event.preventDefault();
   }
 });
@@ -67,3 +66,11 @@ yearInput.addEventListener("input", () => {
     expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`; // 2b). Change data here
   }
 });
+
+// 3) Change credit card number, using object method
+const creditNumber = {
+  first: "0000",
+  second: "0000",
+  third: "0000",
+  fourth: "0000",
+};
