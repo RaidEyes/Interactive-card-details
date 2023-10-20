@@ -1,9 +1,8 @@
 const errorMessage = document.querySelectorAll(".error");
-const userInput = document.querySelectorAll(".card-input");
-const userName = document.querySelector(".name-display");
 
 // Turn the user input name into the name on the card
 const userNameInput = document.getElementById("card-name");
+const userName = document.querySelector(".name-display");
 
 userNameInput.addEventListener("input", () => {
   if (userNameInput.value === "") {
@@ -68,9 +67,15 @@ yearInput.addEventListener("input", () => {
 });
 
 // 3) Change credit card number, using object method
-const creditNumber = {
-  first: "0000",
-  second: "0000",
-  third: "0000",
-  fourth: "0000",
-};
+const creditDisplay = document.querySelector(".number-display");
+const creditNumber = document.getElementById("card-number");
+const creditArray = creditDisplay.innerHTML.split(" ");
+
+creditNumber.addEventListener("input", () => {
+  for (let i = 0; i < 4; i++) {
+    if (creditNumber.value.length % 4 === 0) {
+      creditArray[i] = creditNumber.value;
+      console.log(creditArray);
+    }
+  }
+});
