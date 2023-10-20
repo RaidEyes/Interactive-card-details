@@ -2,35 +2,50 @@
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
-*, *::before, *::after {
-    box-sizing: border-box;
-  }
-  * {
-    margin: 0;
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 18px;
-    font-weight: var(--font-weight-medium);
-    letter-spacing: 0.1rem;
-  }
-  body {
-    min-height: 100vh;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  input, button, textarea, select {
-    font: inherit;
-  }
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  #root, #__next {
-    isolation: isolate;
-  }
-
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1rem;
+}
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
 
 /* =========================================================== */
 /* Declare custom properties here ============================ */
@@ -45,155 +60,165 @@
   --font-weight-bold: 700;
   --font-weight-light: 400;
 }
-  /* Mobile design first approach */
-  fieldset {
-    border: none;
-    padding: 0;
+/* Mobile design first approach */
+fieldset {
+  border: none;
+  padding: 0;
 }
-label, legend {
+label,
+legend {
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
-  body, #main, .card-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  body {
-    background-image: url(./images/bg-main-mobile.png);
-    background-repeat: no-repeat;
-    background-size: 100vw calc(100vh/3);
-    padding-inline: 2rem;
-  }
- #main {
+body,
+#main,
+.card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background-image: url(./images/bg-main-mobile.png);
+  background-repeat: no-repeat;
+  background-size: 100vw calc(100vh / 3);
+  padding-inline: 2rem;
+}
+#main {
   gap: 6rem;
- }
-  .card-form {
-    width: 100%;
-    padding-inline: 1rem;
-    }
+}
+.card-form {
+  width: 100%;
+  padding-inline: 1rem;
+}
 
-  .card-form > * {
-    width: 100%;
-    align-items: flex-start;
-    text-transform: uppercase;
-    }
-  .card-figure {
-      padding-inline: 1rem;
-    }
-    /* Style the button ======================================== */
-    .btn {
-      padding-block: 0.5rem;
-      border-radius: 8px;
-      border: none;
-      color: var(--linear-gradient-color-white);
-      background-color: var(--dark-violet);
-      cursor: pointer;
-      transition: all ease-in-out 150ms;
-      width: 100%;
-    }
-    .btn:hover {
-      color: black;
-      background-color: var(--linear-gradient-color-white);
-      border: 2px solid black;
-    }
-    /* Style the complete message */
-    .complete-header {
-      font-weight: var(--font-weight-bold);
-      text-transform: uppercase;
-      font-size: 1.5rem;
-    }
+.card-form > * {
+  width: 100%;
+  align-items: flex-start;
+  text-transform: uppercase;
+}
+.card-figure {
+  padding-inline: 1rem;
+}
+/* Style the button ======================================== */
+.btn {
+  padding-block: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  color: var(--linear-gradient-color-white);
+  background-color: var(--dark-violet);
+  cursor: pointer;
+  transition: all ease-in-out 150ms;
+  width: 100%;
+}
+.btn:hover {
+  color: black;
+  background-color: var(--linear-gradient-color-white);
+  border: 2px solid black;
+}
+/* Style the complete message */
+.complete-header {
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  font-size: 1.5rem;
+}
 /* Style all the input ========================================= */
-  .card-form > input, .month-and-date > input, .cvc-code > input {
-    border: 2px solid rgba(128, 128, 128, 0.255);  
-    border-radius: 8px;
-    padding-inline: 0.5rem;
-    padding-block: 0.5rem;
-  }
-  .month-and-date > input {
-    width: 40%;
-   }
+.card-form > input,
+.month-and-date > input,
+.cvc-code > input {
+  border: 2px solid rgba(128, 128, 128, 0.255);
+  border-radius: 8px;
+  padding-inline: 0.5rem;
+  padding-block: 0.5rem;
+}
+.month-and-date > input {
+  width: 40%;
+}
 ::placeholder {
   font-weight: var(--font-weight-light);
   color: var(--light-gray-violet);
   font-size: 0.75rem;
 }
 /* Style all the parents of the inputs ========================== */
-  .card-expiry-date {
-    display: grid;
-    grid-template-columns: 0.5fr 0.5fr;
-  }
-  
- .dates, .cvc-code {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+.card-expiry-date {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
 }
-  .month-and-date {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-  .error {
-    color: red;
-    padding-block: 0.5rem;
-    font-size: 0.65rem;
-  }
-  /*  Style the front card ===================================== */
-  .card-figure {
-    position: relative;
-    padding: 1rem;
-  }
-  .card-back {
-    margin-left: 2rem;
-  }
-  .card-front {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    justify-content: space-between;
-    background-image:url(./images/bg-card-front.png );
-    max-height: 245px;
-    width: 100%;
-    max-width: 447px;
-    border-radius: 8px;
-    aspect-ratio: 1.82/1;
-    position: absolute;
-    inset: 0;
-    top: 5.5rem;
-    left: -1rem;
-  }
-  .card-information {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr min-content;
-    row-gap: 1rem;
-    color: var(--linear-gradient-color-white);
-  }
-  .card-information .number-display {
-    letter-spacing: 0.2rem;
-    /* Remember to add media query for this */
-    font-size: 1.7rem;
-    grid-column: 1/3;
-    text-align: left;
-  }
-  .card-logo {
-    width: 20%;
-  }
-  .card-information .expiry-display  {
-    justify-self: flex-end;
-      }
-  .card-information .name-display, .card-information .expiry-display  {
-    font-weight: var(--font-weight-light);
-    font-size: 0.7rem;
-  }
+
+.dates,
+.cvc-code {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.month-and-date {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.error {
+  color: red;
+  padding-block: 0.5rem;
+  font-size: 0.65rem;
+}
+/*  Style the front card ===================================== */
+.card-figure {
+  position: relative;
+  padding: 1rem;
+}
+.card-back {
+  margin-left: 2rem;
+}
+.card-front {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: space-between;
+  background-image: url(./images/bg-card-front.png);
+  max-height: 245px;
+  width: 100%;
+  max-width: 447px;
+  border-radius: 8px;
+  aspect-ratio: 1.82/1;
+  position: absolute;
+  inset: 0;
+  top: 5.5rem;
+  left: -1rem;
+}
+.card-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr min-content;
+  row-gap: 1rem;
+  color: var(--linear-gradient-color-white);
+}
+.card-information .number-display {
+  letter-spacing: 0.2rem;
+  /* Remember to add media query for this */
+  font-size: 1.7rem;
+  grid-column: 1/3;
+  text-align: left;
+}
+.card-logo {
+  width: 20%;
+}
+.card-information .expiry-display {
+  justify-self: flex-end;
+}
+.card-information .name-display,
+.card-information .expiry-display {
+  font-weight: var(--font-weight-light);
+  font-size: 0.7rem;
+}
 /* Media query for font size */
-@media ( width <= 560px) {
-  .card-information .number-display{
+@media (width <= 560px) {
+  .card-information .number-display {
     font-size: 4.2vw;
   }
-   legend, label, .name-display, .expiry-display {
+  legend,
+  label,
+  .name-display,
+  .expiry-display {
     font-size: 2.5vw !important;
   }
 }
@@ -202,7 +227,7 @@ label, legend {
   body {
     height: 100vh;
     background-image: url(./images/bg-main-desktop.png);
-    background-size: calc(100vw/3) 100%;
+    background-size: calc(100vw / 3) 100%;
   }
   #main {
     flex-direction: row;
@@ -215,12 +240,12 @@ label, legend {
   .card-back {
     margin: auto;
     order: 2;
-    transform: translate(2.5rem,0);
+    transform: translate(2.5rem, 0);
   }
   .card-front {
     position: relative;
     inset: 0;
-    transform: translate(-2.5rem,0);
+    transform: translate(-2.5rem, 0);
   }
   .card-form {
     width: 60%;
@@ -236,9 +261,21 @@ label, legend {
 }
 @keyframes modal-animation {
   from {
-    transform: translate(50%,0);
+    transform: translate(50%, 0);
   }
   to {
-    transform: translate(0,0);
+    transform: translate(0, 0);
   }
+}
+
+.card-back {
+  position: relative;
+}
+
+.card-back-text {
+  position: absolute;
+  bottom: 85px;
+  right: 45px;
+  font-size: 0.7rem;
+  color: var(--linear-gradient-color-white);
 }
