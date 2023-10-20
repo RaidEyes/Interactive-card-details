@@ -18,6 +18,7 @@ const expiryDate = document.querySelector(".expiry-display");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
 const cvcCode = document.getElementById("cvc");
+const backCardTextEle = document.querySelector(".card-back-text");
 
 // 1). Make sure user don't type more than 3 numbers
 
@@ -35,6 +36,14 @@ yearInput.addEventListener("keypress", (event) => {
 cvcCode.addEventListener("keypress", (event) => {
   if (cvcCode.value.length > 2) {
     event.preventDefault();
+  }
+});
+
+cvcCode.addEventListener("input", (event) => {
+  backCardTextEle.innerHTML = event.target.value;
+
+  if (!event.target.value) {
+    backCardTextEle.innerHTML = "000";
   }
 });
 
