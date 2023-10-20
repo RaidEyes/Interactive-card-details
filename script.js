@@ -41,7 +41,6 @@ cvcCode.addEventListener("keypress", (event) => {
 
 cvcCode.addEventListener("input", (event) => {
   backCardTextEle.innerHTML = event.target.value;
-
   if (!event.target.value) {
     backCardTextEle.innerHTML = "000";
   }
@@ -75,16 +74,29 @@ yearInput.addEventListener("input", () => {
   }
 });
 
-// 3) Change credit card number, using object method
+// 3) Change credit card number, using array method
 const creditDisplay = document.querySelector(".number-display");
 const creditNumber = document.getElementById("card-number");
-const creditArray = creditDisplay.innerHTML.split(" ");
+const creditArray = creditDisplay.innerHTML.split(" "); // Array for display here
 
-creditNumber.addEventListener("input", () => {
-  for (let i = 0; i < 4; i++) {
-    if (creditNumber.value.length % 4 === 0) {
-      creditArray[i] = creditNumber.value;
-      console.log(creditArray);
-    }
+// 3a) Prevent further typing
+creditNumber.addEventListener("keypress", (event) => {
+  if (creditNumber.value.length > 15) {
+    event.preventDefault();
   }
+});
+
+// 3b) Change the number display
+let m = 0;
+creditNumber.addEventListener("input", () => {
+  const k = creditNumber.value.length;
+  let inputNumber = "";
+  if (k % 4 === 0) {
+    inputNumber = creditNumber.value.slice(-4);
+    creditArray.splice(m, 1, inputNumber);
+    m++;
+  }
+  if (!k) return;
+
+  console.log(creditArray);
 });

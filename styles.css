@@ -85,7 +85,7 @@ body {
   padding-inline: 2rem;
 }
 #main {
-  gap: 6rem;
+  gap: 11.5rem;
 }
 .card-form {
   width: 100%;
@@ -182,7 +182,7 @@ body {
   aspect-ratio: 1.82/1;
   position: absolute;
   inset: 0;
-  top: 5.5rem;
+  top: 10rem;
   left: -1rem;
 }
 .card-information {
@@ -230,6 +230,7 @@ body {
     background-size: calc(100vw / 3) 100%;
   }
   #main {
+    gap: 6rem;
     flex-direction: row;
   }
   .card-figure {
