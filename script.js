@@ -77,7 +77,6 @@ yearInput.addEventListener("input", () => {
 // 3) Change credit card number, using array method
 const creditDisplay = document.querySelector(".number-display");
 const creditNumber = document.getElementById("card-number");
-const creditArray = creditDisplay.innerHTML.split(" "); // Array for display here
 
 // 3a) Prevent further typing
 creditNumber.addEventListener("keypress", (event) => {
@@ -87,16 +86,37 @@ creditNumber.addEventListener("keypress", (event) => {
 });
 
 // 3b) Change the number display
-let m = 0;
-creditNumber.addEventListener("input", () => {
-  const k = creditNumber.value.length;
-  let inputNumber = "";
-  if (k % 4 === 0) {
-    inputNumber = creditNumber.value.slice(-4);
-    creditArray.splice(m, 1, inputNumber);
-    m++;
-  }
-  if (!k) return;
+let creditArray = [
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+  "0",
+]; // Make an array for 16 digits on the display card
 
-  console.log(creditArray);
+creditNumber.addEventListener("input", (event) => {
+  const k = event.target.value.slice(-1).toString();
+  const m = event.target.value.length;
+  creditArray.splice(m - 1, 1, k); // Replace user input into the Array
+  if (!event.data) creditArray.splice(m, 1, "0"); // If the user delete, 0 is the default value
+
+  // Take out each 4 numbers and add a space for them for final display
+  const first4Num = creditArray.slice(0, 4).join(``);
+  const second4Num = creditArray.slice(4, 8).join(``);
+  const third4Num = creditArray.slice(8, 12).join(``);
+  const fourth4Num = creditArray.slice(12, 16).join(``);
+
+  creditDisplay.innerHTML = `${first4Num} ${second4Num} ${third4Num} ${fourth4Num}`;
+  console.log();
 });
