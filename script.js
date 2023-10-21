@@ -46,7 +46,7 @@ cvcCode.addEventListener("input", (event) => {
   }
 });
 
-// 2). Change the user input to the card detail
+// 2). Change the user input to the card detail ===========================
 
 // 2a). Make an object and store data
 const expiryObject = {
@@ -54,38 +54,31 @@ const expiryObject = {
   year: "00",
 };
 
-monthInput.addEventListener("input", () => {
-  if (monthInput.value === "") {
-    expiryObject.month = "00";
-    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
-  } else {
-    expiryObject.month = monthInput.value;
-    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`; // 2b). Change data here
-  }
+monthInput.addEventListener("input", (event) => {
+  expiryObject.month = event.target.value;
+  if (!event.target.value) expiryObject.month = "00";
+  expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
 });
 
-yearInput.addEventListener("input", () => {
-  if (yearInput.value === "") {
-    expiryObject.year = "00";
-    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
-  } else {
-    expiryObject.year = yearInput.value;
-    expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`; // 2b). Change data here
-  }
+yearInput.addEventListener("input", (event) => {
+  expiryObject.year = event.target.value;
+  if (!event.target.value) expiryObject.year = "00";
+  expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
 });
 
-// 3) Change credit card number, using array method
+// 3) Change credit card number, using array method ===========================
 const creditDisplay = document.querySelector(".number-display");
 const creditNumber = document.getElementById("card-number");
 
 // 3a) Prevent further typing
 creditNumber.addEventListener("keypress", (event) => {
-  if (creditNumber.value.length > 15) {
-    event.preventDefault();
-  }
+  const k = creditNumber.value.length;
+  if (k > 15) event.preventDefault();
 });
 
 // 3b) Change the number display
+
+// Make an array for 16 digits on the display card
 let creditArray = [
   "0",
   "0",
@@ -103,7 +96,7 @@ let creditArray = [
   "0",
   "0",
   "0",
-]; // Make an array for 16 digits on the display card
+];
 
 creditNumber.addEventListener("input", (event) => {
   const k = event.target.value.slice(-1).toString();
@@ -118,5 +111,10 @@ creditNumber.addEventListener("input", (event) => {
   const fourth4Num = creditArray.slice(12, 16).join(``);
 
   creditDisplay.innerHTML = `${first4Num} ${second4Num} ${third4Num} ${fourth4Num}`;
-  console.log();
+  console.log(creditArray.toString());
+
+  //todo Create user input space after 4 inputs
 });
+
+//todo1 Make complete message appear after inputing all the information
+//todo2 Store user input data to make sure they have already input their information
