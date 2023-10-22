@@ -99,6 +99,7 @@ body {
 }
 .card-figure {
   padding-inline: 1rem;
+  width: 50%;
 }
 /* Style the button ======================================== */
 .btn {
@@ -275,8 +276,26 @@ body {
 
 .card-back-text {
   position: absolute;
-  bottom: 85px;
+  bottom: 68px;
   right: 45px;
   font-size: 0.7rem;
   color: var(--linear-gradient-color-white);
+}
+
+@media only screen and (max-width: 1200px) {
+  .card-back-text {
+    bottom: 100px;
+    right: 60px;
+  }
+
+  .card-figure {
+    width: 100%;
+  }
+}
+
+.wrap__submitsucess {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
