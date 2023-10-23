@@ -13,31 +13,32 @@ userNameInput.addEventListener("input", () => {
   }
 });
 
-// Get user input to the expiry date ===============================
+//* Get user input to the expiry date ===============================
 const expiryDate = document.querySelector(".expiry-display");
 const monthInput = document.getElementById("month");
 const yearInput = document.getElementById("year");
 const cvcCode = document.getElementById("cvc");
 const backCardTextEle = document.querySelector(".card-back-text");
 
-// 1). Make sure user don't type more than 3 numbers
+//* 1). Make sure user don't type more than numbers allowed
+// !Keypress is depricated, do not use, instead I use inputmode ="numeric" and maxlength="2"
+// !inputmode ="numeric" will open a user's number typing on their phone screen
+// monthInput.addEventListener("keypress", (event) => {
+//   if (monthInput.value.length > 1) {
+//     event.preventDefault();
+//   }
+// });
+// yearInput.addEventListener("keypress", (event) => {
+//   if (yearInput.value.length > 1) {
+//     event.preventDefault();
+//   }
+// });
 
-monthInput.addEventListener("keypress", (event) => {
-  if (monthInput.value.length > 1) {
-    event.preventDefault();
-  }
-});
-yearInput.addEventListener("keypress", (event) => {
-  if (yearInput.value.length > 1) {
-    event.preventDefault();
-  }
-});
-
-cvcCode.addEventListener("keypress", (event) => {
-  if (cvcCode.value.length > 2) {
-    event.preventDefault();
-  }
-});
+// cvcCode.addEventListener("keypress", (event) => {
+//   if (cvcCode.value.length > 2) {
+//     event.preventDefault();
+//   }
+// });
 
 cvcCode.addEventListener("input", (event) => {
   backCardTextEle.innerHTML = event.target.value;
@@ -46,7 +47,7 @@ cvcCode.addEventListener("input", (event) => {
   }
 });
 
-// 2). Change the user input to the card detail ===========================
+//* 2). Change the user input to the card detail ===========================
 
 // 2a). Make an object and store data
 const expiryObject = {
@@ -66,43 +67,24 @@ yearInput.addEventListener("input", (event) => {
   expiryDate.innerHTML = `${expiryObject.month}/${expiryObject.year}`;
 });
 
-// 3) Change credit card number, using array method ===========================
+//* 3) Change credit card number, using array method ===========================
 const creditDisplay = document.querySelector(".number-display");
 const creditNumber = document.getElementById("card-number");
 
-// 3a) Prevent further typing
-creditNumber.addEventListener("keypress", (event) => {
-  const k = creditNumber.value.length;
-  if (k > 15) event.preventDefault();
-});
+//* 3a) Prevent further typing
+//! No need because inputmode + maxlength resolve this problem
 
-// 3b) Change the number display
-
+//* 3b) Change the number display
 // Make an array for 16 digits on the display card
-let creditArray = [
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-  "0",
-];
+let creditArray = Array(16).fill(0);
 
 creditNumber.addEventListener("input", (event) => {
-  const k = event.target.value.slice(-1).toString();
-  const m = event.target.value.length;
-  creditArray.splice(m - 1, 1, k); // Replace user input into the Array
-  if (!event.data) creditArray.splice(m, 1, "0"); // If the user delete, 0 is the default value
+  const inputValue = event.target.value.slice(-1);
+  const inputLength = event.target.value.length;
+
+  creditArray.splice(inputLength - 1, 1, inputValue); // Replace user input into the Array
+  if (!event.data) creditArray.splice(inputLength, 1, 0); // If the user delete, 0 is the default value
+  if (inputLength === 0) creditArray = Array(16).fill(0); // When deleting all digits, array bacinputValue to original
 
   // Take out each 4 numbers and add a space for them for final display
   const first4Num = creditArray.slice(0, 4).join(``);
@@ -111,10 +93,24 @@ creditNumber.addEventListener("input", (event) => {
   const fourth4Num = creditArray.slice(12, 16).join(``);
 
   creditDisplay.innerHTML = `${first4Num} ${second4Num} ${third4Num} ${fourth4Num}`;
-  console.log(creditArray.toString());
-
-  //todo Create user input space after 4 inputs
 });
 
+//* Show Error Message for all input
+const allInputField = document.querySelectorAll("input");
+//  Make a loop for all input field
+allInputField.forEach((input) => {
+  const newErrorMessage = document.createElement("span"); // Create a span
+  newErrorMessage.classList.add("error"); // Style the span
+  input.after(newErrorMessage); // put the span under input box
+
+  // Each input will have an event listener
+  input.addEventListener("input", (event) => {
+    const inputValue = event.target.value;
+    let regEx = /^[0-9]+$/;
+    if (input.id === "card-name") regEx = /^[a-zA-Z]+$/;
+    newErrorMessage.innerHTML = regEx.test(inputValue) ? "" : "Invalid format";
+  });
+});
 //todo1 Make complete message appear after inputing all the information
 //todo2 Store user input data to make sure they have already input their information
+//todo4 Create user input space after 4 inputs
