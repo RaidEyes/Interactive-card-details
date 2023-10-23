@@ -252,7 +252,7 @@ body {
     width: 60%;
   }
   .card-information .number-display {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
 }
 /* Animation for the complete message ===============================*/
@@ -275,7 +275,7 @@ body {
 
 .card-back-text {
   position: absolute;
-  bottom: 68px;
+  bottom: 100px;
   right: 45px;
   font-size: 0.7rem;
   color: var(--linear-gradient-color-white);
