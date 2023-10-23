@@ -111,43 +111,33 @@
                 inputmode="numeric"
                 required
               />
-            </div>
-          </fieldset>
-
-          <div class="cvc-code">
-            <legend for="cvc-code">cvc</legend>
-            <input
-              class="cvc-code card-input"
-              name="cvc-code"
-              type="text"
-              id="cvc"
-              placeholder="e.g 123"
-              pattern="[0 - 9]"
-              maxlength="3"
-              inputmode="numeric"
-              required
-            />
           </div>
-        </div>
-        <button class="btn submit-btn">Confirm</button>
-      </form>
-    </main>
-    <!-- Completed state start -->
-    <!-- <img
-      src="./images/icon-complete.svg"
-      alt="complete icon"
-      class="complete-logo"
-    />
-    <h3 class="complete-header">Thank you!</h3>
-    <p class="complete-message">We've added your card details</p>
-    <button class="btn complete-btn">Continue</button> -->
+          <span class="error"></span>
+        </fieldset>
 
-    <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">Your Name Here</a>.
+        <div class="cvc-code">
+          <legend for="cvc-code">cvc</legend>
+          <input class="cvc-code card-input" name="cvc-code" type="number" id="cvc" placeholder="e.g 123" max="999" />
+          <span class="error"></span>
+        </div>
+      </div>
+      <button class="btn submit-btn">Confirm</button>
+    </form>
+    <!-- Completed state start -->
+    <div class="d-none wrap__submitsucess">
+      <img src="./images/icon-complete.svg" alt="complete icon" class="complete-logo mb-5" />
+      <h3 class="complete-header mb-5">Thank you!</h3>
+      <p class="complete-message mb-5">We've added your card details</p>
+      <button class="btn complete-btn">Continue</button>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </main>
+
+  <div class="attribution">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Your
+      Name Here</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>

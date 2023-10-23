@@ -113,4 +113,17 @@ allInputField.forEach((input) => {
 });
 //todo1 Make complete message appear after inputing all the information
 //todo2 Store user input data to make sure they have already input their information
+
+
+const btnSubmitForm = document.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const cardFormEle = document.querySelector(".card-form");
+  cardFormEle.style.display = "none";
+
+  const submitSucessEle = document.querySelector(".wrap__submitsucess");
+  submitSucessEle.classList.remove("d-none");
+  submitSucessEle.classList.add("wrap__submitsucess");
+});
+
 //todo4 Create user input space after 4 inputs
+
