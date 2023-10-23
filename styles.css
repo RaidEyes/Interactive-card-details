@@ -158,6 +158,9 @@ body {
   padding-block: 0.5rem;
   font-size: 0.65rem;
 }
+.error-style {
+ background-color: #f1617ecc;
+}
 /*  Style the front card ===================================== */
 .card-figure {
   display: flex;
@@ -271,8 +274,6 @@ body {
     transform: translate(0, 0);
   }
 }
-
-
 .card-back {
   background-image: url(./images/bg-card-back.png);
   background-repeat: no-repeat;
@@ -310,9 +311,12 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  display: none;
+  gap: 2rem;
 }
 
 .card-back-img {
   max-width: 343px;
+}
+.d-none { 
+  display: none;
 }

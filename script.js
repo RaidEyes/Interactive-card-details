@@ -106,22 +106,30 @@ allInputField.forEach((input) => {
   // Each input will have an event listener
   input.addEventListener("input", (event) => {
     const inputValue = event.target.value;
+    newErrorMessage.innerHTML = "";
     let regEx = /^[0-9]+$/;
-    if (input.id === "card-name") regEx = /^[a-zA-Z]+$/;
-    newErrorMessage.innerHTML = regEx.test(inputValue) ? "" : "Invalid format";
+    if (input.id === "card-name") regEx = /^[a-zA-Z\s]+$/;
+    input.classList.remove("error-style");
+
+    if (!regEx.test(inputValue)) {
+      newErrorMessage.innerHTML = "Invalid format";
+      input.classList.add("error-style");
+    }
+
+    if (event.target.validity.valueMissing) {
+      newErrorMessage.innerHTML = "Can't be blank";
+      input.classList.add("error-style");
+    }
   });
 });
-//todo2 Store user input data to make sure they have already input their information
 
-//todo1 Make complete message appear after inputing all the information
 const btnSubmitForm = document.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardFormEle = document.querySelector(".card-form");
   cardFormEle.style.display = "none";
+  document.getElementById("main").style.width = "100%";
 
   const submitSucessEle = document.querySelector(".wrap__submitsucess");
   submitSucessEle.classList.remove("d-none");
   submitSucessEle.classList.add("wrap__submitsucess");
 });
-
-//todo4 Create user input space after 4 inputs
