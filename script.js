@@ -111,10 +111,9 @@ allInputField.forEach((input) => {
     newErrorMessage.innerHTML = regEx.test(inputValue) ? "" : "Invalid format";
   });
 });
-//todo1 Make complete message appear after inputing all the information
 //todo2 Store user input data to make sure they have already input their information
 
-
+//todo1 Make complete message appear after inputing all the information
 const btnSubmitForm = document.addEventListener("submit", (e) => {
   e.preventDefault();
   const cardFormEle = document.querySelector(".card-form");
@@ -126,4 +125,3 @@ const btnSubmitForm = document.addEventListener("submit", (e) => {
 });
 
 //todo4 Create user input space after 4 inputs
-
