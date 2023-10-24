@@ -216,7 +216,7 @@ body {
 /* Media query for font size */
 @media (width <= 560px) {
   .card-information .number-display {
-    font-size: 4.2vw;
+    font-size: 4.5vw;
   }
   legend,
   label,
